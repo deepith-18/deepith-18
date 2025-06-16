@@ -24,7 +24,7 @@
         <a href="https://linkedin.com/in/deepithn12042004" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"/></a>
         <a href="https://x.com/DeepithD19?t=i01GEX-SG3g7hPAuNsDE4Q&s=09" target="_blank"><img src="https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white"/></a>
         <a href="https://leetcode.com/u/deepu0101/" target="_blank"><img src="https://img.shields.io/badge/LeetCode-FFA116?style=for-the-badge&logo=leetcode&logoColor=black"/></a>
-        <a href="https://deepithcv.deekshith.space/" target="_blank"><img src="https://img.shields.io/badge/Portfolio-255E63?style=for-the-badge&logo=react&logoColor=white"/></a>
+        <a href="https://deepithportfolio.netlify.app/" target="_blank"><img src="https://img.shields.io/badge/Portfolio-255E63?style=for-the-badge&logo=react&logoColor=white"/></a>
       </p>
     </td>
     <td width="40%" align="center">
