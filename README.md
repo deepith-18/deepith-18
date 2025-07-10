@@ -7,7 +7,7 @@
 -->
 
 <h1 align="center">Hi 👋, I'm Deepith N</h1>
-<h3 align="center">Data Engineer | AI/ML Developer | Problem Solver</h3>
+<h3 align="center">Data Engineer | Software Developer | Problem Solver</h3>
 
 <table>
   <tr>
