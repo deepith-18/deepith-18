@@ -1,6 +1,6 @@
 <!-- 
 ### HOW TO USE:
-1.  Replace placeholders like `YOUR_GITHUB_USERNAME` and `YOUR_PROJECT_REPO_LINK` with your actual links.
+1.  Replace placeholders like `YOUR_PROJECT_REPO_LINK` with your actual links.
 2.  The project GIFs are placeholders. You can create short screen recordings of your projects, convert them to GIFs, and upload them to a GitHub issue to get a URL.
 -->
 
@@ -18,15 +18,15 @@
         <li>📫 How to reach me: <strong>deepithdeekshith@gmail.com</strong></li>
       </ul>
       <p align="left">
-        <a href="https://github.com/YOUR_GITHUB_USERNAME" target="_blank"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"/></a>
+        <a href="https://github.com/deepith-18" target="_blank"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"/></a>
         <a href="https://linkedin.com/in/deepithn12042004" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"/></a>
         <a href="https://deepithportfolio.netlify.app/" target="_blank"><img src="https://img.shields.io/badge/Portfolio-255E63?style=for-the-badge&logo=react&logoColor=white"/></a>
         <a href="https://leetcode.com/u/deepu0101/" target="_blank"><img src="https://img.shields.io/badge/LeetCode-FFA116?style=for-the-badge&logo=leetcode&logoColor=black"/></a>
       </p>
     </td>
     <td width="40%" align="center">
-      <img src="https://github-readme-stats.vercel.app/api?username=YOUR_GITHUB_USERNAME&show_icons=true&theme=dracula&rank_icon=github" alt="Deepith's GitHub Stats"/>
-      <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=YOUR_GITHUB_USERNAME&layout=compact&theme=dracula" alt="Top Languages"/>
+      <img src="https://github-readme-stats.vercel.app/api?username=deepith-18&show_icons=true&theme=dracula&rank_icon=github" alt="Deepith's GitHub Stats"/>
+      <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=deepith-18&layout=compact&theme=dracula" alt="Top Languages"/>
     </td>
   </tr>
 </table>
