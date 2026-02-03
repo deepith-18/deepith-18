@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://git.io/typing-svg">
-    <img src="https://readme-typing-svg.herokuapp.com?font=Rubik+Glitch&weight=400&size=60&pause=1000&color=00FF41&center=true&vCenter=true&width=600&lines=DEEPITH+N;SOFTWARE+DEVELOPER;PROBLEM+SOLVER" alt="Glitch Text" />
+    <img src="https://readme-typing-svg.herokuapp.com?font=Press+Start+2P&weight=400&size=35&pause=1000&color=F75C7E&center=true&vCenter=true&width=600&lines=Deepith+N;Level+20+Developer;Ready+Player+One" alt="Retro Text" />
   </a>
 
   <p>
