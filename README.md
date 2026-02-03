@@ -4,115 +4,117 @@
                     🔥 ANIMATED NAME BANNER — GLITCH + NEON + REVEAL 🔥
      ████████████████████████████████████████████████████████████████████████ -->
 
-<svg width="800" height="200" viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg">
+<svg width="800" height="160" viewBox="0 0 800 160" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <!-- Neon glow filter -->
+    <!-- deep neon glow -->
     <filter id="neon" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="b1"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="b2"/>
       <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="blur"/>
+        <feMergeNode in="b1"/>
+        <feMergeNode in="b2"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
-    <!-- Sharper inner glow -->
-    <filter id="glow2" x="-30%" y="-30%" width="160%" height="160%">
-      <feGaussianBlur stdDeviation="2" result="b"/>
-      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    <!-- tight glow for main text -->
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
-    <!-- Flicker animation for the glow layer -->
-    <radialGradient id="bgGrad" cx="50%" cy="50%" r="70%">
-      <stop offset="0%" stop-color="#0a0a0f"/>
-      <stop offset="100%" stop-color="#020204"/>
+    <!-- background gradient -->
+    <radialGradient id="bg" cx="50%" cy="50%" r="75%">
+      <stop offset="0%"   stop-color="#0c0c10"/>
+      <stop offset="100%" stop-color="#020203"/>
     </radialGradient>
-    <!-- Scanline pattern -->
-    <pattern id="scanlines" patternUnits="userSpaceOnUse" width="800" height="4">
-      <rect width="800" height="2" fill="rgba(0,0,0,0.15)"/>
+    <!-- horizontal scanline pattern -->
+    <pattern id="scan" patternUnits="userSpaceOnUse" width="800" height="4">
+      <rect width="800" height="1.5" fill="#ffffff" fill-opacity="0.03"/>
     </pattern>
+    <!-- clip for the initial wipe-reveal of the name -->
+    <clipPath id="wipe">
+      <rect x="0" y="0" width="0" height="160">
+        <animate attributeName="width" values="0;800" dur="0.9s" fill="freeze" calcMode="ease-out"/>
+      </rect>
+    </clipPath>
   </defs>
 
-  <!-- Dark background -->
-  <rect width="800" height="200" fill="url(#bgGrad)" rx="12"/>
-  <!-- Subtle scanline overlay -->
-  <rect width="800" height="200" fill="url(#scanlines)" rx="12" opacity="0.4"/>
+  <!-- ── background ── -->
+  <rect width="800" height="160" rx="14" fill="url(#bg)"/>
+  <rect width="800" height="160" rx="14" fill="url(#scan)"/>
 
-  <!-- ── Ambient glow orbs ── -->
-  <circle cx="120" cy="100" r="80" fill="#e8ff00" opacity="0.04">
-    <animate attributeName="opacity" values="0.04;0.08;0.04" dur="3s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="680" cy="100" r="90" fill="#ff3cac" opacity="0.04">
-    <animate attributeName="opacity" values="0.04;0.07;0.04" dur="4s" repeatCount="indefinite"/>
-  </circle>
+  <!-- ── subtle pulsing ambient light behind name ── -->
+  <ellipse cx="400" cy="75" rx="260" ry="55" fill="#e8ff00" opacity="0">
+    <animate attributeName="opacity" values="0;0.045;0;0.03;0" dur="3.6s" repeatCount="indefinite"/>
+  </ellipse>
+  <ellipse cx="400" cy="75" rx="180" ry="40" fill="#00f0ff" opacity="0">
+    <animate attributeName="opacity" values="0;0.04;0;0.025;0" dur="4.2s" repeatCount="indefinite"/>
+  </ellipse>
 
-  <!-- ──────────────────────────────────────────
-         LAYER 1 — Red glitch copy (offset)
-       ────────────────────────────────────────── -->
-  <text x="400" y="138" text-anchor="middle"
-        font-family="'Bebas Neue', 'Arial Black', sans-serif"
-        font-size="130" font-weight="900" fill="#ff3cac" opacity="0.6"
-        filter="url(#neon)" letter-spacing="14">
-    DEEPITH
-    <!-- Glitch horizontal shake -->
-    <animateTransform attributeName="transform" type="translate"
-      values="0,0  3,0  -2,0  0,0  -4,0  2,0  0,0"
-      dur="0.3s" repeatCount="indefinite" calcMode="discrete"/>
-  </text>
+  <!-- ════════════════════════════════════════════════
+       ALL NAME LAYERS — wrapped in the wipe clip
+       so they all reveal together in a single sweep
+       ════════════════════════════════════════════════ -->
+  <g clip-path="url(#wipe)">
 
-  <!-- ──────────────────────────────────────────
-         LAYER 2 — Cyan glitch copy (offset opposite)
-       ────────────────────────────────────────── -->
-  <text x="400" y="138" text-anchor="middle"
-        font-family="'Bebas Neue', 'Arial Black', sans-serif"
-        font-size="130" font-weight="900" fill="#00f0ff" opacity="0.5"
-        filter="url(#neon)" letter-spacing="14">
-    DEEPITH
-    <animateTransform attributeName="transform" type="translate"
-      values="0,0  -3,0  4,0  0,0  2,0  -2,0  0,0"
-      dur="0.3s" repeatCount="indefinite" calcMode="discrete"/>
-  </text>
+    <!-- LAYER A — magenta glitch shadow (jitters via x) -->
+    <text text-anchor="middle" y="118"
+          font-family="'Arial Black', 'Impact', sans-serif"
+          font-size="120" font-weight="900"
+          fill="#ff3cac" opacity="0.55" filter="url(#neon)" letter-spacing="8">
+      <tspan>DEEPITH</tspan>
+      <!-- x oscillates: 400 → 404 → 396 → 402 → 398 → 400 … -->
+      <animate attributeName="x" values="400;404;396;402;398;400;401;397;403;400" dur="0.35s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
 
-  <!-- ──────────────────────────────────────────
-         LAYER 3 — Main bright neon text (stable)
-       ────────────────────────────────────────── -->
-  <text x="400" y="138" text-anchor="middle"
-        font-family="'Bebas Neue', 'Arial Black', sans-serif"
-        font-size="130" font-weight="900" fill="#ffffff"
-        filter="url(#glow2)" letter-spacing="14">
-    DEEPITH
-  </text>
+    <!-- LAYER B — cyan glitch shadow (opposite phase) -->
+    <text text-anchor="middle" y="118"
+          font-family="'Arial Black', 'Impact', sans-serif"
+          font-size="120" font-weight="900"
+          fill="#00f0ff" opacity="0.45" filter="url(#neon)" letter-spacing="8">
+      <tspan>DEEPITH</tspan>
+      <animate attributeName="x" values="400;396;404;398;402;400;399;403;397;400" dur="0.35s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
 
-  <!-- ──────────────────────────────────────────
-         LAYER 4 — Neon accent outline (pulsing)
-       ────────────────────────────────────────── -->
-  <text x="400" y="138" text-anchor="middle"
-        font-family="'Bebas Neue', 'Arial Black', sans-serif"
-        font-size="130" font-weight="900"
-        fill="none" stroke="#e8ff00" stroke-width="1.2"
-        filter="url(#neon)" letter-spacing="14" opacity="0.7">
-    DEEPITH
-    <animate attributeName="opacity" values="0.7;1;0.5;1;0.7" dur="2s" repeatCount="indefinite"/>
-    <animate attributeName="stroke-width" values="1.2;2;0.8;1.5;1.2" dur="2s" repeatCount="indefinite"/>
-  </text>
+    <!-- LAYER C — main crisp white text (locked center, no jitter) -->
+    <text x="400" text-anchor="middle" y="118"
+          font-family="'Arial Black', 'Impact', sans-serif"
+          font-size="120" font-weight="900"
+          fill="#ffffff" filter="url(#glow)" letter-spacing="8">
+      DEEPITH
+    </text>
 
-  <!-- ── Glitch clip rectangle that flickers across the text ── -->
-  <rect x="0" y="85" width="800" height="8" fill="#e8ff00" opacity="0">
-    <animate attributeName="opacity" values="0;0;0;0.25;0;0;0;0.15;0" dur="1.8s" repeatCount="indefinite" calcMode="discrete"/>
-    <animate attributeName="y" values="85;95;75;105;90;85" dur="1.8s" repeatCount="indefinite" calcMode="discrete"/>
-  </rect>
+    <!-- LAYER D — neon yellow outline that pulses -->
+    <text x="400" text-anchor="middle" y="118"
+          font-family="'Arial Black', 'Impact', sans-serif"
+          font-size="120" font-weight="900"
+          fill="none" stroke="#e8ff00" stroke-width="1.5"
+          filter="url(#neon)" letter-spacing="8" opacity="0.6">
+      DEEPITH
+      <animate attributeName="opacity"      values="0.6;0.9;0.4;0.85;0.6" dur="2.2s" repeatCount="indefinite"/>
+      <animate attributeName="stroke-width" values="1.5;2.5;0.7;2;1.5"     dur="2.2s" repeatCount="indefinite"/>
+    </text>
 
-  <!-- ── Subtitle ── -->
-  <text x="400" y="172" text-anchor="middle"
+    <!-- LAYER E — random horizontal glitch bar that flickers across -->
+    <rect x="0" width="800" height="6" fill="#e8ff00" opacity="0">
+      <animate attributeName="opacity" values="0;0;0;0.3;0;0;0;0.18;0;0" dur="2s" repeatCount="indefinite" calcMode="discrete"/>
+      <animate attributeName="y"       values="60;80;55;95;70;88;60;75;90;60" dur="2s" repeatCount="indefinite" calcMode="discrete"/>
+    </rect>
+
+  </g><!-- end wipe clip -->
+
+  <!-- ── subtitle below name ── -->
+  <text x="400" y="148" text-anchor="middle"
         font-family="'Courier New', monospace"
-        font-size="14" fill="#e8ff00" letter-spacing="6" opacity="0.85">
+        font-size="13" fill="#e8ff00" letter-spacing="5" opacity="0.8">
     SOFTWARE DEVELOPER &amp; PROBLEM SOLVER
-    <animate attributeName="opacity" values="0.85;0.5;0.85" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.8;0.45;0.8" dur="3s" repeatCount="indefinite"/>
   </text>
 
-  <!-- ── Corner decorations ── -->
-  <text x="28" y="30" font-family="monospace" font-size="11" fill="#ffffff" opacity="0.2">&lt;/&gt;</text>
-  <text x="740" y="30" font-family="monospace" font-size="11" fill="#ffffff" opacity="0.2">&lt;/&gt;</text>
-  <text x="28" y="190" font-family="monospace" font-size="11" fill="#ffffff" opacity="0.2">&lt;/&gt;</text>
-  <text x="740" y="190" font-family="monospace" font-size="11" fill="#ffffff" opacity="0.2">&lt;/&gt;</text>
+  <!-- ── corner code tags ── -->
+  <text x="22"  y="26" font-family="monospace" font-size="10" fill="#ffffff" opacity="0.18">&lt;/&gt;</text>
+  <text x="758" y="26" font-family="monospace" font-size="10" fill="#ffffff" opacity="0.18">&lt;/&gt;</text>
+  <text x="22"  y="152" font-family="monospace" font-size="10" fill="#ffffff" opacity="0.18">&lt;/&gt;</text>
+  <text x="758" y="152" font-family="monospace" font-size="10" fill="#ffffff" opacity="0.18">&lt;/&gt;</text>
 </svg>
 
 <!-- ████████████████████████████████████████████████████████████████████████
