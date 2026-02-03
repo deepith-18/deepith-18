@@ -1,15 +1,17 @@
 <div align="center">
-  <a href="https://git.io/typing-svg">
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=50&pause=1000&color=33FF00&center=true&vCenter=true&width=500&lines=Deepith+N" alt="Neon Text" />
-  </a>
-  
-  <p>
+  <!-- Large Space Header -->
+  <img src="https://capsule-render.vercel.app/api?type=rect&color=0f2027,203a43,2c5364&height=200&section=header&text=DEEPITH%20N&fontSize=80&fontColor=ffffff&fontAlign=50&fontAlignY=50&animation=fadeIn&fontFamily=Russo%20One" width="100%" />
+
+  <!-- Social Links -->
+  <p align="center">
     <a href="https://linkedin.com/in/deepithn12042004">
       <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" />
     </a>
+    &nbsp;&nbsp; <!-- Adds space between buttons -->
     <a href="https://deepith.me">
       <img src="https://img.shields.io/badge/Portfolio-255E63?style=for-the-badge&logo=react&logoColor=white" />
     </a>
+    &nbsp;&nbsp;
     <a href="https://leetcode.com/u/deepu0101/">
       <img src="https://img.shields.io/badge/LeetCode-FFA116?style=for-the-badge&logo=leetcode&logoColor=black" />
     </a>
