@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://readme-typing-svg.demolab.com?font=Bebas+Neue&size=100&duration=3000&pause=9000&color=F75C7E&background=00000000&center=true&vCenter=true&width=680&height=160&lines=DEEPITH+N" alt="Deepith N" />
+<img src="https://readme-typing-svg.demolab.com?font=Bebas+Neue&size=100&duration=3000&pause=5000&color=F75C7E&background=00000000&center=true&vCenter=true&width=680&height=160&lines=DEEPITH+N" alt="Deepith N" />
 
 <img src="https://readme-typing-svg.demolab.com?font=Share+Tech+Mono&size=13&duration=2000&pause=4000&color=888888&background=00000000&center=true&vCenter=true&width=500&height=30&lines=DEVELOPER+·+BUILDER+·+BENGALURU" alt="Developer · Builder · Bengaluru" />
 
