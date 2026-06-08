@@ -4,7 +4,7 @@
     <img src="banner.svg" alt="Deepith N" width="800" />
   </a>
   <p>
-    <a href="https://linkedin.com/in/deepithn12042004">
+    <a href="https://linkedin.com/in/deepithn1718">
       <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" />
     </a>
     <a href="https://deepith.me">
