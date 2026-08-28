@@ -1,50 +1,134 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="100%" height="200">
+  <rect width="100%" height="100%" fill="#06060a" rx="10" />
+
   <defs>
-    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#1a001a">
-        <animate attributeName="stop-color" values="#1a001a; #33001a; #1a001a" dur="4s" repeatCount="indefinite" />
-      </stop>
-      <stop offset="100%" stop-color="#000000">
-        <animate attributeName="stop-color" values="#000000; #1a001a; #000000" dur="4s" repeatCount="indefinite" />
-      </stop>
+    <!-- The Custom RGB Laser Beam Gradient -->
+    <!-- Cyan edge -> White hot core -> Pink edge -->
+    <linearGradient id="laserBeam" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="transparent" />
+      <stop offset="25%" stop-color="rgba(0, 255, 255, 0.6)" />
+      <stop offset="50%" stop-color="rgba(255, 255, 255, 1)" />
+      <stop offset="75%" stop-color="rgba(247, 92, 126, 0.6)" />
+      <stop offset="100%" stop-color="transparent" />
     </linearGradient>
+
+    <!-- The Scanner Mask that moves across the screen -->
+    <clipPath id="scanner">
+      <rect x="0" y="0" width="220" height="200">
+        <animate attributeName="x" values="-250; 850; -250" dur="6s" repeatCount="indefinite" ease-in-out="cubic-bezier(0.4, 0, 0.2, 1)" />
+      </rect>
+    </clipPath>
   </defs>
 
-  <rect width="100%" height="100%" fill="url(#bgGradient)" rx="10" />
-
   <style>
-    .neon-text {
-      font-family: Impact, sans-serif;
-      font-size: 85px;
-      letter-spacing: 5px;
+    /* 1. Base Elements (Always visible, dark/unlit neon tubes) */
+    .base-bracket {
+      fill: none;
+      stroke: #15222b;
+      stroke-width: 6px;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .base-text {
+      font-family: 'Impact', sans-serif;
+      font-size: 80px;
+      letter-spacing: 10px;
       fill: transparent;
-      stroke: #F75C7E;
+      stroke: #1a1a24;
+      stroke-width: 2px;
+    }
+    .base-sub {
+      font-family: monospace;
+      font-size: 14px;
+      letter-spacing: 8px;
+      fill: #1a1a24;
+    }
+
+    /* 2. Revealed Glowing Elements (Inside the Laser) */
+    .glow-bracket {
+      fill: none;
+      stroke: #0ff;
+      stroke-width: 6px;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      filter: drop-shadow(0 0 10px #0ff);
+    }
+    
+    .glow-sub {
+      font-family: monospace;
+      font-size: 14px;
+      letter-spacing: 8px;
+      fill: #F75C7E;
+      filter: drop-shadow(0 0 5px #F75C7E);
+    }
+
+    /* 3. The RGB Glitch Text animations */
+    .trace-cyan, .trace-pink, .trace-white {
+      font-family: 'Impact', sans-serif;
+      font-size: 80px;
+      letter-spacing: 10px;
+      fill: transparent;
       stroke-width: 2px;
       stroke-dasharray: 400;
       stroke-dashoffset: 400;
-      animation: drawText 4s ease-in-out infinite alternate;
     }
 
-    @keyframes drawText {
-      0% {
-        stroke-dashoffset: 400;
-        fill: transparent;
-        filter: drop-shadow(0 0 2px #F75C7E);
-      }
-      40% {
-        stroke-dashoffset: 0;
-        fill: transparent;
-        filter: drop-shadow(0 0 5px #F75C7E);
-      }
-      100% {
-        stroke-dashoffset: 0;
-        fill: #F75C7E;
-        filter: drop-shadow(0 0 15px #F75C7E);
-      }
+    /* Cyan pulls left/up, Pink pulls right/down. They snap to center at 55% */
+    .trace-cyan { stroke: #0ff; animation: glitchCyan 6s infinite ease-in-out; }
+    .trace-pink { stroke: #F75C7E; animation: glitchPink 6s infinite ease-in-out; }
+    .trace-white { stroke: #ffffff; animation: glitchWhite 6s infinite ease-in-out; }
+
+    @keyframes glitchCyan {
+      0%, 15% { stroke-dashoffset: 400; transform: translate(-10px, -5px); }
+      40%, 45% { stroke-dashoffset: 0; transform: translate(-5px, -2px); fill: transparent; filter: drop-shadow(0 0 0px #0ff); }
+      55%, 100% { stroke-dashoffset: 0; transform: translate(0px, 0px); fill: transparent; filter: drop-shadow(0 0 10px #0ff); }
+    }
+
+    @keyframes glitchPink {
+      0%, 15% { stroke-dashoffset: 400; transform: translate(10px, 5px); }
+      40%, 45% { stroke-dashoffset: 0; transform: translate(5px, 2px); fill: transparent; filter: drop-shadow(0 0 0px #F75C7E); }
+      55%, 100% { stroke-dashoffset: 0; transform: translate(0px, 0px); fill: transparent; filter: drop-shadow(0 0 10px #F75C7E); }
+    }
+
+    @keyframes glitchWhite {
+      0%, 15% { stroke-dashoffset: 400; fill: transparent; filter: drop-shadow(0 0 0px #fff); }
+      40%, 45% { stroke-dashoffset: 0; fill: transparent; filter: drop-shadow(0 0 5px #fff); }
+      55%, 100% { stroke-dashoffset: 0; fill: #ffffff; filter: drop-shadow(0 0 20px #ffffff); }
     }
   </style>
 
-  <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" class="neon-text">
-    DEEPITH N
-  </text>
+  <!-- ========================================== -->
+  <!-- LAYER 1: BASE (Always Visible Dark Layer)  -->
+  <!-- ========================================== -->
+  <path d="M 150 70 L 100 100 L 150 130" class="base-bracket" />
+  <path d="M 640 140 L 670 60" class="base-bracket" stroke-width="4px" />
+  <path d="M 690 70 L 740 100 L 690 130" class="base-bracket" />
+  
+  <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" class="base-text">DEEPITH N</text>
+  <text x="50%" y="82%" dominant-baseline="middle" text-anchor="middle" class="base-sub">SOFTWARE_ENGINEER</text>
+
+
+  <!-- ========================================== -->
+  <!-- LAYER 2: REVEALED (Only visible in Laser)  -->
+  <!-- ========================================== -->
+  <g clip-path="url(#scanner)">
+    
+    <!-- Glowing Brackets & Subtitle -->
+    <path d="M 150 70 L 100 100 L 150 130" class="glow-bracket" />
+    <path d="M 640 140 L 670 60" class="glow-bracket" stroke-width="4px" />
+    <path d="M 690 70 L 740 100 L 690 130" class="glow-bracket" />
+    <text x="50%" y="82%" dominant-baseline="middle" text-anchor="middle" class="glow-sub">SOFTWARE DEVELOPER</text>
+
+    <!-- The RGB Glitch Text -->
+    <!-- These split apart, trace themselves, and violently snap together -->
+    <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" class="trace-cyan">DEEPITH N</text>
+    <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" class="trace-pink">DEEPITH N</text>
+    <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" class="trace-white">DEEPITH N</text>
+
+    <!-- The Physical Laser Beam -->
+    <rect y="10" width="220" height="180" fill="url(#laserBeam)" opacity="0.4">
+      <animate attributeName="x" values="-250; 850; -250" dur="6s" repeatCount="indefinite" ease-in-out="cubic-bezier(0.4, 0, 0.2, 1)" />
+    </rect>
+  </g>
+
 </svg>
