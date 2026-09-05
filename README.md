@@ -23,7 +23,7 @@
 
   <br /><br />
 
-  <!-- 3. SIDE-BY-SIDE STATS -->
+  <!-- 3. SIDE-BY-SIDE STATS OF GITHUB -->
   
   <img height="195" src="https://streak-stats.demolab.com/?user=deepith-18&background=06060a&ring=F75C7E&fire=F75C7E&currStreakNum=ffffff&currStreakLabel=0ff&sideNums=ffffff&sideLabels=0ff&dates=255E63&hide_border=true" alt="GitHub Streak" />
 
